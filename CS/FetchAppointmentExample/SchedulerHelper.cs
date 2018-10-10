@@ -23,6 +23,8 @@ namespace FetchAppointmentExample {
 
         public static void FillResources(ISchedulerStorage storage, int count) {
             ResourceCollection resources = storage.Resources.Items;
+            if (resources.Count > 0)
+                return;
             storage.BeginUpdate();
             try {
                 int cnt = Math.Min(count, SchedulerHelper.resources.Length);
@@ -31,8 +33,7 @@ namespace FetchAppointmentExample {
                     resource.Caption = SchedulerHelper.resources[i - 1];
                     resources.Add(resource);
                 }
-            }
-            finally {
+            } finally {
                 storage.EndUpdate();
             }
         }

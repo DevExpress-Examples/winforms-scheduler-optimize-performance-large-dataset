@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.XtraScheduler;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraScheduler;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace FetchAppointmentExample {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm {
@@ -29,9 +23,9 @@ namespace FetchAppointmentExample {
             if ((scheduleTestDataSet.Resources.Rows.Count == 0) || (scheduleTestDataSet.Appointments.Rows.Count == 0))
                 CreateSampleData();
 
-            schedulerStorage1.AppointmentsChanged += OnApptChangedInsertedDeleted;
-            schedulerStorage1.AppointmentsInserted += OnApptChangedInsertedDeleted;
-            schedulerStorage1.AppointmentsDeleted += OnApptChangedInsertedDeleted;
+            schedulerDataStorage1.AppointmentsChanged += OnApptChangedInsertedDeleted;
+            schedulerDataStorage1.AppointmentsInserted += OnApptChangedInsertedDeleted;
+            schedulerDataStorage1.AppointmentsDeleted += OnApptChangedInsertedDeleted;
 
             schedulerControl1.VisibleIntervalChanged += schedulerControl1_VisibleIntervalChanged;
             schedulerControl1.VisibleResourcesChanged += SchedulerControl1_VisibleResourcesChanged;
@@ -44,12 +38,11 @@ namespace FetchAppointmentExample {
         }
 
         #region #fetchappointments
-        void schedulerStorage1_FetchAppointments(object sender, FetchAppointmentsEventArgs e) {
+        void schedulerDataStorage1_FetchAppointments(object sender, FetchAppointmentsEventArgs e) {
             ResourceBaseCollection resourcesVisible = new ResourceBaseCollection() { Capacity = schedulerControl1.ActiveView.ResourcesPerPage };
             for (int i = 0; i < schedulerControl1.ActiveView.ResourcesPerPage; i++) {
-                resourcesVisible.Add(schedulerStorage1.Resources[schedulerControl1.ActiveView.FirstVisibleResourceIndex + i]);
+                resourcesVisible.Add(schedulerDataStorage1.Resources[schedulerControl1.ActiveView.FirstVisibleResourceIndex + i]);
             }
-
             QueryAppointmentDataSource(e, resourcesVisible);
         }
 
@@ -82,9 +75,9 @@ namespace FetchAppointmentExample {
 
         // Fills the Scheduler with resources and appointments.
         private void CreateSampleData() {
-            SchedulerHelper.FillResources(this.schedulerStorage1, 17);
+            SchedulerHelper.FillResources(this.schedulerDataStorage1, 17);
             this.resourcesTableAdapter.Update(scheduleTestDataSet);
-            SchedulerHelper.GenerateAppointments(this.schedulerStorage1, 150);
+            SchedulerHelper.GenerateAppointments(this.schedulerDataStorage1, 150);
             BulkUpdateAppointmentsTable();
             this.scheduleTestDataSet.AcceptChanges();
             this.appointmentsTableAdapter.Fill(this.scheduleTestDataSet.Appointments);
@@ -116,15 +109,13 @@ namespace FetchAppointmentExample {
         }
 
         private void cbFetchAppointments_CheckedChanged(object sender, EventArgs e) {
-            if (cbFetchAppointments.Checked) {
-                schedulerStorage1.EnableSmartFetch = false;
-                schedulerStorage1.FetchAppointments += schedulerStorage1_FetchAppointments;
+            if (cbFetchAppointments.Checked) {                
+                schedulerDataStorage1.FetchAppointments += schedulerDataStorage1_FetchAppointments;
             }
             else {
-                schedulerStorage1.FetchAppointments -= schedulerStorage1_FetchAppointments;
+                schedulerDataStorage1.FetchAppointments -= schedulerDataStorage1_FetchAppointments;
                 this.resourcesTableAdapter.Fill(scheduleTestDataSet.Resources);
-                this.appointmentsTableAdapter.Fill(scheduleTestDataSet.Appointments);
-                schedulerStorage1.EnableSmartFetch = true;
+                this.appointmentsTableAdapter.Fill(scheduleTestDataSet.Appointments);                
             }
         }
         private void cbBoldAppointmentDates_CheckedChanged(object sender, EventArgs e) {
