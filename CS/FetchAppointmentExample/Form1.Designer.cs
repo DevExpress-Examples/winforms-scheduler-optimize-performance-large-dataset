@@ -32,7 +32,7 @@
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
             this.cbBoldAppointmentDates = new DevExpress.XtraEditors.CheckEdit();
             this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerStorage1 = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
+            this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
             this.appointmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.scheduleTestDataSet = new FetchAppointmentExample.ScheduleTestDataSet();
             this.resourcesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -45,7 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbFetchAppointments.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbBoldAppointmentDates.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleTestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).BeginInit();
@@ -96,7 +96,7 @@
             // 
             // schedulerControl1
             // 
-            this.schedulerControl1.DataStorage = this.schedulerStorage1;
+            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
             this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.schedulerControl1.Location = new System.Drawing.Point(0, 53);
             this.schedulerControl1.Name = "schedulerControl1";
@@ -111,30 +111,30 @@
             this.schedulerControl1.Views.WeekView.Enabled = false;
             this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
             // 
-            // schedulerStorage1
+            // schedulerDataStorage1
             // 
-            this.schedulerStorage1.Appointments.DataSource = this.appointmentsBindingSource;
-            this.schedulerStorage1.Appointments.Mappings.AppointmentId = "UniqueID";
-            this.schedulerStorage1.Appointments.Mappings.AllDay = "AllDay";
-            this.schedulerStorage1.Appointments.Mappings.Description = "Description";
-            this.schedulerStorage1.Appointments.Mappings.End = "EndDate";
-            this.schedulerStorage1.Appointments.Mappings.Label = "Label";
-            this.schedulerStorage1.Appointments.Mappings.Location = "Location";
-            this.schedulerStorage1.Appointments.Mappings.OriginalOccurrenceEnd = "OriginalOccurrenceEnd";
-            this.schedulerStorage1.Appointments.Mappings.OriginalOccurrenceStart = "OriginalOccurrenceStart";
-            this.schedulerStorage1.Appointments.Mappings.RecurrenceInfo = "RecurrenceInfo";
-            this.schedulerStorage1.Appointments.Mappings.ReminderInfo = "ReminderInfo";
-            this.schedulerStorage1.Appointments.Mappings.ResourceId = "ResourceID";
-            this.schedulerStorage1.Appointments.Mappings.Start = "StartDate";
-            this.schedulerStorage1.Appointments.Mappings.Status = "Status";
-            this.schedulerStorage1.Appointments.Mappings.Subject = "Subject";
-            this.schedulerStorage1.Appointments.Mappings.TimeZoneId = "TimeZoneId";
-            this.schedulerStorage1.Appointments.Mappings.Type = "Type";
-            this.schedulerStorage1.Resources.DataSource = this.resourcesBindingSource;
-            this.schedulerStorage1.Resources.Mappings.Caption = "ResourceName";
-            this.schedulerStorage1.Resources.Mappings.Color = "Color";
-            this.schedulerStorage1.Resources.Mappings.Id = "ResourceID";
-            this.schedulerStorage1.Resources.Mappings.Image = "Image";
+            this.schedulerDataStorage1.Appointments.DataSource = this.appointmentsBindingSource;
+            this.schedulerDataStorage1.Appointments.Mappings.AppointmentId = "UniqueID";
+            this.schedulerDataStorage1.Appointments.Mappings.AllDay = "AllDay";
+            this.schedulerDataStorage1.Appointments.Mappings.Description = "Description";
+            this.schedulerDataStorage1.Appointments.Mappings.End = "EndDate";
+            this.schedulerDataStorage1.Appointments.Mappings.Label = "Label";
+            this.schedulerDataStorage1.Appointments.Mappings.Location = "Location";
+            this.schedulerDataStorage1.Appointments.Mappings.OriginalOccurrenceEnd = "OriginalOccurrenceEnd";
+            this.schedulerDataStorage1.Appointments.Mappings.OriginalOccurrenceStart = "OriginalOccurrenceStart";
+            this.schedulerDataStorage1.Appointments.Mappings.RecurrenceInfo = "RecurrenceInfo";
+            this.schedulerDataStorage1.Appointments.Mappings.ReminderInfo = "ReminderInfo";
+            this.schedulerDataStorage1.Appointments.Mappings.ResourceId = "ResourceID";
+            this.schedulerDataStorage1.Appointments.Mappings.Start = "StartDate";
+            this.schedulerDataStorage1.Appointments.Mappings.Status = "Status";
+            this.schedulerDataStorage1.Appointments.Mappings.Subject = "Subject";
+            this.schedulerDataStorage1.Appointments.Mappings.TimeZoneId = "TimeZoneId";
+            this.schedulerDataStorage1.Appointments.Mappings.Type = "Type";
+            this.schedulerDataStorage1.Resources.DataSource = this.resourcesBindingSource;
+            this.schedulerDataStorage1.Resources.Mappings.Caption = "ResourceName";
+            this.schedulerDataStorage1.Resources.Mappings.Color = "Color";
+            this.schedulerDataStorage1.Resources.Mappings.Id = "ResourceID";
+            this.schedulerDataStorage1.Resources.Mappings.Image = "Image";
             // 
             // appointmentsBindingSource
             // 
@@ -189,7 +189,8 @@
             this.Controls.Add(this.dateNavigator1);
             this.Controls.Add(this.panelControl1);
             this.Name = "Form1";
-            this.Text = "FetchAppointment Example";
+            this.Text = "How to use FetchAppointments event for handling large appointment sets";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -197,7 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbFetchAppointments.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbBoldAppointmentDates.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleTestDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourcesBindingSource)).EndInit();
@@ -213,7 +214,7 @@
         private DevExpress.XtraEditors.CheckEdit cbBoldAppointmentDates;
         private DevExpress.XtraEditors.LabelControl lblInfo;
         private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
-        private DevExpress.XtraScheduler.SchedulerStorage schedulerStorage1;
+        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerDataStorage1;
         private DevExpress.XtraScheduler.DateNavigator dateNavigator1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private ScheduleTestDataSet scheduleTestDataSet;
