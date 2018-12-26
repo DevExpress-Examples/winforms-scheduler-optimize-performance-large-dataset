@@ -31,11 +31,11 @@ Namespace FetchAppointmentsExample
 			Me.schedulerControl1 = New DevExpress.XtraScheduler.SchedulerControl()
 			Me.schedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
 			Me.carSchedulingBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-			Me.carsDBDataSet = New FetchAppointmentsExample.CarsDBDataSet()
-			Me.carsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-			Me.carSchedulingTableAdapter = New FetchAppointmentsExample.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
-			Me.carsTableAdapter = New FetchAppointmentsExample.CarsDBDataSetTableAdapters.CarsTableAdapter()
-			CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.carsDBDataSet = New CarsDBDataSet()
+            Me.carsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+            Me.carSchedulingTableAdapter = New CarsDBDataSetTableAdapters.CarSchedulingTableAdapter()
+            Me.carsTableAdapter = New CarsDBDataSetTableAdapters.CarsTableAdapter()
+            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
 			CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
 			CType(Me.carSchedulingBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 			CType(Me.carsDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,9 +125,9 @@ Namespace FetchAppointmentsExample
 		Private schedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
 		Private carsDBDataSet As CarsDBDataSet
 		Private carSchedulingBindingSource As System.Windows.Forms.BindingSource
-		Private carSchedulingTableAdapter As FetchAppointmentsExample.CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
-		Private carsBindingSource As System.Windows.Forms.BindingSource
-		Private carsTableAdapter As FetchAppointmentsExample.CarsDBDataSetTableAdapters.CarsTableAdapter
-	End Class
+        Private carSchedulingTableAdapter As CarsDBDataSetTableAdapters.CarSchedulingTableAdapter
+        Private carsBindingSource As System.Windows.Forms.BindingSource
+        Private carsTableAdapter As CarsDBDataSetTableAdapters.CarsTableAdapter
+    End Class
 End Namespace
 
