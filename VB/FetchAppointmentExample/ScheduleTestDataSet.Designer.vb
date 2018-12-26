@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-#Disable Warning 1591
+
 
 Namespace FetchAppointmentExample
 
@@ -2993,4 +2993,3 @@ SELECT ResourceID, ResourceName, Color, Image FROM Resources WHERE (ResourceID =
     End Class
 End Namespace
 
-#Enable Warning 1591
