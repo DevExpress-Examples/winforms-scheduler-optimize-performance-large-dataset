@@ -1,13 +1,11 @@
-﻿Namespace FetchAppointmentExample
+Namespace FetchAppointmentExample
 
-
-    Partial Public Class ScheduleTestDataSet
+    Partial Class ScheduleTestDataSet
     End Class
 End Namespace
 
 Namespace FetchAppointmentExample.ScheduleTestDataSetTableAdapters
 
-
-    Partial Public Class AppointmentsTableAdapter
+    Public Partial Class AppointmentsTableAdapter
     End Class
 End Namespace
