@@ -2,14 +2,15 @@
 <xs:schema id="ScheduleTestDataSet" targetNamespace="http://tempuri.org/ScheduleTestDataSet.xsd" xmlns:mstns="http://tempuri.org/ScheduleTestDataSet.xsd" xmlns="http://tempuri.org/ScheduleTestDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ScheduleTestConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ScheduleTestConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FetchAppointmentExample_VB.My.MySettings.GlobalReference.Default.ScheduleTestConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ScheduleTestConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ScheduleTestConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FetchAppointmentExample.Properties.Settings.GlobalReference.Default.ScheduleTestConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ScheduleTestConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ScheduleTestConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FetchAppointmentExample.Properties.Settings.GlobalReference.Default.ScheduleTestConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AppointmentsTableAdapter" GeneratorDataComponentClassName="AppointmentsTableAdapter" Name="Appointments" UserDataComponentName="AppointmentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ScheduleTestConnectionString (MySettings)" DbObjectName="dbo.Appointments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ScheduleTestConnectionString (Settings)" DbObjectName="dbo.Appointments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Appointments] WHERE (([UniqueID] = @Original_UniqueID) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_StartDate = 1 AND [StartDate] IS NULL) OR ([StartDate] = @Original_StartDate)) AND ((@IsNull_EndDate = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_EndDate)) AND ((@IsNull_AllDay = 1 AND [AllDay] IS NULL) OR ([AllDay] = @Original_AllDay)) AND ((@IsNull_Subject = 1 AND [Subject] IS NULL) OR ([Subject] = @Original_Subject)) AND ((@IsNull_Location = 1 AND [Location] IS NULL) OR ([Location] = @Original_Location)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_Label = 1 AND [Label] IS NULL) OR ([Label] = @Original_Label)) AND ((@IsNull_ResourceID = 1 AND [ResourceID] IS NULL) OR ([ResourceID] = @Original_ResourceID)))</CommandText>
@@ -59,7 +60,7 @@ SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Descriptio
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Description, Status, Label, ResourceID, ResourceIDs, ReminderInfo, RecurrenceInfo, CustomField1 FROM dbo.Appointments</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -102,7 +103,7 @@ SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Descriptio
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Label" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Label" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ResourceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ResourceID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ResourceID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ResourceID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="UniqueID" ColumnName="UniqueID" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE_VB\FETCHAPPOINTMENTEXAMPLE_VB\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UniqueID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="UniqueID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UniqueID" ColumnName="UniqueID" DataSourceName="[C:\CODECENTRAL\E2730\FETCHAPPOINTMENTEXAMPLE\FETCHAPPOINTMENTEXAMPLE\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UniqueID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="UniqueID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -126,7 +127,7 @@ SELECT UniqueID, Type, StartDate, EndDate, AllDay, Subject, Location, Descriptio
               <Mapping SourceColumn="CustomField1" DataSetColumn="CustomField1" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ScheduleTestConnectionString (MySettings)" DbObjectName="dbo.Appointments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="ScheduleTestConnectionString1 (Settings)" DbObjectName="dbo.Appointments" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT       Appointments.*
@@ -137,8 +138,8 @@ WHERE        (StartDate &gt;= @From) AND (StartDate &lt;= @To) OR
                      (Type = 1);
 </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="From" ColumnName="StartDate" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE_VB\FETCHAPPOINTMENTEXAMPLE_VB\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@From" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="4" SourceColumn="StartDate" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="To" ColumnName="StartDate" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE_VB\FETCHAPPOINTMENTEXAMPLE_VB\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@To" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="4" SourceColumn="StartDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="From" ColumnName="StartDate" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE\FETCHAPPOINTMENTEXAMPLE\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@From" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="4" SourceColumn="StartDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="To" ColumnName="StartDate" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE\FETCHAPPOINTMENTEXAMPLE\SCHEDULETEST.MDF].dbo.Appointments" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@To" Precision="0" ProviderType="SmallDateTime" Scale="0" Size="4" SourceColumn="StartDate" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -147,7 +148,7 @@ WHERE        (StartDate &gt;= @From) AND (StartDate &lt;= @To) OR
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ResourcesTableAdapter" GeneratorDataComponentClassName="ResourcesTableAdapter" Name="Resources" UserDataComponentName="ResourcesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ScheduleTestConnectionString (MySettings)" DbObjectName="dbo.Resources" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ScheduleTestConnectionString (Settings)" DbObjectName="dbo.Resources" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Resources] WHERE (([UniqueID] = @Original_UniqueID) AND ([ResourceID] = @Original_ResourceID) AND ((@IsNull_ResourceName = 1 AND [ResourceName] IS NULL) OR ([ResourceName] = @Original_ResourceName)) AND ((@IsNull_Color = 1 AND [Color] IS NULL) OR ([Color] = @Original_Color)))</CommandText>
@@ -175,7 +176,7 @@ SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resou
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM dbo.Resources</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -196,7 +197,7 @@ SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resou
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ResourceName" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ResourceName" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Color" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Color" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Color" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="UniqueID" ColumnName="UniqueID" DataSourceName="[C:\GALLERY\WHATSNEW13.2\SCHEDULER\FETCHAPPOINTMENTEXAMPLE_VB\FETCHAPPOINTMENTEXAMPLE_VB\SCHEDULETEST.MDF].dbo.Resources" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UniqueID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="UniqueID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UniqueID" ColumnName="UniqueID" DataSourceName="[C:\CODECENTRAL\E2730\FETCHAPPOINTMENTEXAMPLE\FETCHAPPOINTMENTEXAMPLE\SCHEDULETEST.MDF].dbo.Resources" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@UniqueID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="UniqueID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -220,7 +221,7 @@ SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resou
   <xs:element name="ScheduleTestDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ScheduleTestDataSet" msprop:Generator_UserDSName="ScheduleTestDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Appointments" msprop:Generator_TableClassName="AppointmentsDataTable" msprop:Generator_TableVarName="tableAppointments" msprop:Generator_RowChangedName="AppointmentsRowChanged" msprop:Generator_TablePropName="Appointments" msprop:Generator_RowDeletingName="AppointmentsRowDeleting" msprop:Generator_RowChangingName="AppointmentsRowChanging" msprop:Generator_RowEvHandlerName="AppointmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentsRowDeleted" msprop:Generator_RowClassName="AppointmentsRow" msprop:Generator_UserTableName="Appointments" msprop:Generator_RowEvArgName="AppointmentsRowChangeEvent">
+        <xs:element name="Appointments" msprop:Generator_TableClassName="AppointmentsDataTable" msprop:Generator_TableVarName="tableAppointments" msprop:Generator_TablePropName="Appointments" msprop:Generator_RowDeletingName="AppointmentsRowDeleting" msprop:Generator_RowChangingName="AppointmentsRowChanging" msprop:Generator_RowEvHandlerName="AppointmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AppointmentsRowDeleted" msprop:Generator_UserTableName="Appointments" msprop:Generator_RowChangedName="AppointmentsRowChanged" msprop:Generator_RowEvArgName="AppointmentsRowChangeEvent" msprop:Generator_RowClassName="AppointmentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UniqueID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUniqueID" msprop:Generator_ColumnPropNameInRow="UniqueID" msprop:Generator_ColumnPropNameInTable="UniqueIDColumn" msprop:Generator_UserColumnName="UniqueID" type="xs:int" />
@@ -283,7 +284,7 @@ SELECT UniqueID, ResourceID, ResourceName, Color, Image, CustomField1 FROM Resou
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Resources" msprop:Generator_TableClassName="ResourcesDataTable" msprop:Generator_TableVarName="tableResources" msprop:Generator_RowChangedName="ResourcesRowChanged" msprop:Generator_TablePropName="Resources" msprop:Generator_RowDeletingName="ResourcesRowDeleting" msprop:Generator_RowChangingName="ResourcesRowChanging" msprop:Generator_RowEvHandlerName="ResourcesRowChangeEventHandler" msprop:Generator_RowDeletedName="ResourcesRowDeleted" msprop:Generator_RowClassName="ResourcesRow" msprop:Generator_UserTableName="Resources" msprop:Generator_RowEvArgName="ResourcesRowChangeEvent">
+        <xs:element name="Resources" msprop:Generator_TableClassName="ResourcesDataTable" msprop:Generator_TableVarName="tableResources" msprop:Generator_TablePropName="Resources" msprop:Generator_RowDeletingName="ResourcesRowDeleting" msprop:Generator_RowChangingName="ResourcesRowChanging" msprop:Generator_RowEvHandlerName="ResourcesRowChangeEventHandler" msprop:Generator_RowDeletedName="ResourcesRowDeleted" msprop:Generator_UserTableName="Resources" msprop:Generator_RowChangedName="ResourcesRowChanged" msprop:Generator_RowEvArgName="ResourcesRowChangeEvent" msprop:Generator_RowClassName="ResourcesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UniqueID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUniqueID" msprop:Generator_ColumnPropNameInRow="UniqueID" msprop:Generator_ColumnPropNameInTable="UniqueIDColumn" msprop:Generator_UserColumnName="UniqueID" type="xs:int" />
