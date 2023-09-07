@@ -1,21 +1,19 @@
-﻿Imports DevExpress.XtraScheduler
+Imports DevExpress.XtraScheduler
 Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Text
 
 Namespace FetchAppointmentExample
-    Friend Class SchedulerHelper
-        Private Const DAY_COUNT As Integer = 100
-        Private Shared resources() As String = {"Peter Dolan", "Ryan Fischer", "Richard Fisher", "Tom Hamlett", "Mark Hamilton", "Steve Lee", "Jimmy Lewis", "Jeffrey W McClain", "Andrew Miller", "Dave Murrel", "Bert Parkins", "Mike Roller", "Ray Shipman", "Paul Bailey", "Brad Barnes", "Carl Lucas", "Jerry Campbell"}
 
-        Private Shared subjects() As String = { "Meeting", "Phone call", "Travel", "One more meeting", "One more phone call", "One more travel" }
+    Friend Class SchedulerHelper
+
+        Const DAY_COUNT As Integer = 100
+
+        Private Shared resources As String() = {"Peter Dolan", "Ryan Fischer", "Richard Fisher", "Tom Hamlett", "Mark Hamilton", "Steve Lee", "Jimmy Lewis", "Jeffrey W McClain", "Andrew Miller", "Dave Murrel", "Bert Parkins", "Mike Roller", "Ray Shipman", "Paul Bailey", "Brad Barnes", "Carl Lucas", "Jerry Campbell"}
+
+        Private Shared subjects As String() = {"Meeting", "Phone call", "Travel", "One more meeting", "One more phone call", "One more travel"}
 
         Public Shared Sub FillResources(ByVal storage As ISchedulerStorage, ByVal count As Integer)
             Dim resources As ResourceCollection = storage.Resources.Items
-            If resources.Count > 0 Then
-                Return
-            End If
+            If resources.Count > 0 Then Return
             storage.BeginUpdate()
             Try
                 Dim cnt As Integer = Math.Min(count, SchedulerHelper.resources.Length)
@@ -23,7 +21,7 @@ Namespace FetchAppointmentExample
                     Dim resource As Resource = storage.CreateResource(i)
                     resource.Caption = SchedulerHelper.resources(i - 1)
                     resources.Add(resource)
-                Next i
+                Next
             Finally
                 storage.EndUpdate()
             End Try
@@ -31,13 +29,12 @@ Namespace FetchAppointmentExample
 
         Public Shared Sub GenerateAppointments(ByVal storage As ISchedulerStorage, ByVal aptsPerDay As Integer)
             storage.BeginUpdate()
-            Dim rnd As New Random()
+            Dim rnd As Random = New Random()
             Dim start As Date = Date.Today.AddDays(-DAY_COUNT \ 2)
-            Dim i As Integer = 0
-            Do While i <= DAY_COUNT * aptsPerDay
+            For i As Integer = 0 To DAY_COUNT * aptsPerDay
                 storage.Appointments.Add(CreateNewAppointment(storage, i, aptsPerDay, rnd, start))
-                i += 1
-            Loop
+            Next
+
             storage.EndUpdate()
         End Sub
 
@@ -47,7 +44,6 @@ Namespace FetchAppointmentExample
 
         Private Shared Function CreateNewAppointment(ByVal storage As ISchedulerStorage, ByVal index As Integer, ByVal aptsPerDay As Integer, ByVal rnd As Random, ByVal start As Date) As Appointment
             Dim day As Integer = index \ aptsPerDay
-
             Dim apt As Appointment = storage.CreateAppointment(AppointmentType.Normal)
             apt.SetId(index + 1)
             apt.Start = start.AddDays(day).AddHours(GetRandomDouble(rnd, 0, 18))
@@ -58,6 +54,5 @@ Namespace FetchAppointmentExample
             apt.ResourceId = rnd.Next(0, resources.Length)
             Return apt
         End Function
-
     End Class
 End Namespace
