@@ -1,5 +1,7 @@
-﻿Namespace FetchAppointmentExample
-    Partial Public Class Form1
+Namespace FetchAppointmentExample
+
+    Partial Class Form1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -10,23 +12,23 @@
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
         ''' </summary>
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
-            Dim timeRuler1 As New DevExpress.XtraScheduler.TimeRuler()
-            Dim timeRuler2 As New DevExpress.XtraScheduler.TimeRuler()
-            Dim timeRuler3 As New DevExpress.XtraScheduler.TimeRuler()
+            Dim timeRuler1 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
+            Dim timeRuler2 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
+            Dim timeRuler3 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
             Me.panelControl1 = New DevExpress.XtraEditors.PanelControl()
             Me.cbFetchAppointments = New DevExpress.XtraEditors.CheckEdit()
             Me.lblInfo = New DevExpress.XtraEditors.LabelControl()
@@ -40,17 +42,17 @@
             Me.defaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
             Me.appointmentsTableAdapter = New FetchAppointmentExample.ScheduleTestDataSetTableAdapters.AppointmentsTableAdapter()
             Me.resourcesTableAdapter = New FetchAppointmentExample.ScheduleTestDataSetTableAdapters.ResourcesTableAdapter()
-            CType(Me.panelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.panelControl1), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.panelControl1.SuspendLayout()
-            CType(Me.cbFetchAppointments.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.cbBoldAppointmentDates.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.appointmentsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.scheduleTestDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.resourcesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.dateNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
-            CType(Me.dateNavigator1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.cbFetchAppointments.Properties), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.cbBoldAppointmentDates.Properties), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.appointmentsBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.scheduleTestDataSet), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.resourcesBindingSource), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.dateNavigator1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.dateNavigator1.CalendarTimeProperties), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' panelControl1
@@ -71,6 +73,7 @@
             Me.cbFetchAppointments.Properties.Caption = "FetchAppointments Event"
             Me.cbFetchAppointments.Size = New System.Drawing.Size(153, 19)
             Me.cbFetchAppointments.TabIndex = 2
+            AddHandler Me.cbFetchAppointments.CheckedChanged, New System.EventHandler(AddressOf Me.cbFetchAppointments_CheckedChanged)
             ' 
             ' lblInfo
             ' 
@@ -91,6 +94,7 @@
             Me.cbBoldAppointmentDates.Properties.Caption = "DateNavigator.BoldAppointmentDates"
             Me.cbBoldAppointmentDates.Size = New System.Drawing.Size(205, 19)
             Me.cbBoldAppointmentDates.TabIndex = 0
+            AddHandler Me.cbBoldAppointmentDates.CheckedChanged, New System.EventHandler(AddressOf Me.cbBoldAppointmentDates_CheckedChanged)
             ' 
             ' schedulerControl1
             ' 
@@ -99,7 +103,7 @@
             Me.schedulerControl1.Location = New System.Drawing.Point(0, 53)
             Me.schedulerControl1.Name = "schedulerControl1"
             Me.schedulerControl1.Size = New System.Drawing.Size(628, 515)
-            Me.schedulerControl1.Start = New Date(2017, 3, 21, 0, 0, 0, 0)
+            Me.schedulerControl1.Start = New System.DateTime(2017, 3, 21, 0, 0, 0, 0)
             Me.schedulerControl1.TabIndex = 1
             Me.schedulerControl1.Text = "schedulerControl1"
             Me.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1)
@@ -115,7 +119,7 @@
             Me.schedulerStorage1.Appointments.Mappings.AppointmentId = "UniqueID"
             Me.schedulerStorage1.Appointments.Mappings.AllDay = "AllDay"
             Me.schedulerStorage1.Appointments.Mappings.Description = "Description"
-            Me.schedulerStorage1.Appointments.Mappings.End = "EndDate"
+            Me.schedulerStorage1.Appointments.Mappings.[End] = "EndDate"
             Me.schedulerStorage1.Appointments.Mappings.Label = "Label"
             Me.schedulerStorage1.Appointments.Mappings.Location = "Location"
             Me.schedulerStorage1.Appointments.Mappings.OriginalOccurrenceEnd = "OriginalOccurrenceEnd"
@@ -155,8 +159,8 @@
             Me.dateNavigator1.BoldAppointmentDates = False
             Me.dateNavigator1.CalendarAppearance.DayCellSpecial.FontStyleDelta = System.Drawing.FontStyle.Bold
             Me.dateNavigator1.CalendarAppearance.DayCellSpecial.Options.UseFont = True
-            Me.dateNavigator1.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() { New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-            Me.dateNavigator1.Cursor = System.Windows.Forms.Cursors.Default
+            Me.dateNavigator1.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+            Me.dateNavigator1.Cursor = System.Windows.Forms.Cursors.[Default]
             Me.dateNavigator1.Dock = System.Windows.Forms.DockStyle.Right
             Me.dateNavigator1.FirstDayOfWeek = System.DayOfWeek.Sunday
             Me.dateNavigator1.Location = New System.Drawing.Point(628, 53)
@@ -187,37 +191,47 @@
             Me.Controls.Add(Me.panelControl1)
             Me.Name = "Form1"
             Me.Text = "FetchAppointment Example"
-            CType(Me.panelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            AddHandler Me.Load, New System.EventHandler(AddressOf Me.Form1_Load)
+            CType((Me.panelControl1), System.ComponentModel.ISupportInitialize).EndInit()
             Me.panelControl1.ResumeLayout(False)
             Me.panelControl1.PerformLayout()
-            CType(Me.cbFetchAppointments.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.cbBoldAppointmentDates.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.appointmentsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.scheduleTestDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.resourcesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.dateNavigator1.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-            CType(Me.dateNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.cbFetchAppointments.Properties), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.cbBoldAppointmentDates.Properties), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.appointmentsBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.scheduleTestDataSet), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.resourcesBindingSource), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.dateNavigator1.CalendarTimeProperties), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.dateNavigator1), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
-
+#End Region
         Private panelControl1 As DevExpress.XtraEditors.PanelControl
-        Private WithEvents cbBoldAppointmentDates As DevExpress.XtraEditors.CheckEdit
+
+        Private cbBoldAppointmentDates As DevExpress.XtraEditors.CheckEdit
+
         Private lblInfo As DevExpress.XtraEditors.LabelControl
+
         Private schedulerControl1 As DevExpress.XtraScheduler.SchedulerControl
+
         Private schedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
+
         Private dateNavigator1 As DevExpress.XtraScheduler.DateNavigator
+
         Private defaultLookAndFeel1 As DevExpress.LookAndFeel.DefaultLookAndFeel
-        Private scheduleTestDataSet As ScheduleTestDataSet
+
+        Private scheduleTestDataSet As FetchAppointmentExample.ScheduleTestDataSet
+
         Private appointmentsBindingSource As System.Windows.Forms.BindingSource
-        Private appointmentsTableAdapter As ScheduleTestDataSetTableAdapters.AppointmentsTableAdapter
+
+        Private appointmentsTableAdapter As FetchAppointmentExample.ScheduleTestDataSetTableAdapters.AppointmentsTableAdapter
+
         Private resourcesBindingSource As System.Windows.Forms.BindingSource
-        Private resourcesTableAdapter As ScheduleTestDataSetTableAdapters.ResourcesTableAdapter
-        Private WithEvents cbFetchAppointments As DevExpress.XtraEditors.CheckEdit
+
+        Private resourcesTableAdapter As FetchAppointmentExample.ScheduleTestDataSetTableAdapters.ResourcesTableAdapter
+
+        Private cbFetchAppointments As DevExpress.XtraEditors.CheckEdit
     End Class
 End Namespace
-
