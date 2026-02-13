@@ -16,7 +16,7 @@ The WinForms Scheduler control behaves perfectly well when there is a reasonable
 * [How to: Use the FetchAppointments Event for Faster Appointment Loading](https://docs.devexpress.com/WindowsForms/2299/controls-and-libraries/scheduler/examples/data-binding/how-to-use-the-fetchappointments-event-for-faster-appointment-loading)
 
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-scheduler-optimize-performance-large-dataset&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-scheduler-optimize-performance-large-dataset&~~~was_helpful=no)
 
