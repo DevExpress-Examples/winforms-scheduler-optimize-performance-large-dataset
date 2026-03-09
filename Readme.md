@@ -8,7 +8,7 @@
 
 The WinForms Scheduler control behaves perfectly well when there is a reasonable amount of appointments to display. If there are too many appointments, the application fetches unnecessary data, increases system workload, and slows down the overall performance. This example demonstrates how to handle the [FetchAppointments](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraScheduler.ISchedulerStorageBase.FetchAppointments) event to limit the number of appointments fetched from the data source.
 
-![WinForms Scheduler - How to use FetchAppointments event for handling large appointment sets](https://raw.githubusercontent.com/DevExpress-Examples/how-to-use-fetchappointments-event-for-handling-large-appointment-sets-e2730/16.2.3+/media/4f13ba4a-0fcf-11e7-80bf-00155d62480c.png)
+![WinForms Scheduler - How to use FetchAppointments event for handling large appointment sets](media/4f13ba4a-0fcf-11e7-80bf-00155d62480c.png)
 
 
 ## Documentation
@@ -22,3 +22,4 @@ The WinForms Scheduler control behaves perfectly well when there is a reasonable
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
